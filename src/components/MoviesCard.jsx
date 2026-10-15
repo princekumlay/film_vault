@@ -18,7 +18,8 @@ function MoviesCard({posterPath, movieName}) {
     '
     style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${posterPath})`}}>
     
-    <div className='text-white rounded-lg text-center font-bold p-2 bg-gray-900/50 w-full'>{movieName}</div>
+    <div className='text-white leading-4 pb-2 pt-1 rounded-lg text-center text-sm bg-cream-100 backdrop-blur-md border border-white/20 w-full'>{movieName}</div>
+    
         
     </div>
   )

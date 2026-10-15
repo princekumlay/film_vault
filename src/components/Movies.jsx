@@ -16,7 +16,7 @@ function Movies() {
   }, [pageNo])
 
   return (
-    <div className='p-2 bg-[#1a1c23]'>
+    <div className='w-full p-2 bg-[#1a1c23]'>
 
       {/* heading */}
         <div className='text-2xl text-white text-center font-bold mb-5'>

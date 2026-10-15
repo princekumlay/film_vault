@@ -1,31 +1,50 @@
-
 import { useState } from "react";
 
 function WatchList() {
   const [search, setSearch] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("All Genre");
+
+  const genres = ["All Genres", "Action", "Comedy"];
 
   return (
     <>
       <div className="flex justify-center  my-4 p-4">
-        <div className="border border-gray-800 text-gray-400 text-center rounded-[8px] bg-[#111111] w-[100px] h-[30px] mx-2">All Genres</div>
-        <div className="border border-gray-800 text-gray-400 text-center rounded-[8px] bg-[#111111] w-[100px] h-[30px] mx-2">Adventure</div>
-        <div className="border border-gray-800 text-gray-400 text-center rounded-[8px] bg-[#111111] w-[100px] h-[30px] mx-2">Comedy</div>
+        <div className="flex flex-wrap gap-2">
+          {genres.map((genre) => (
+            <div
+              key={genre}
+              onClick={() => setSelectedGenre(genre)}
+              className={`            cursor-pointer
+            border
+            text-center
+            rounded-[8px]
+            w-[100px] h-[30px]
+            flex items-center justify-center
+            transition-all duration-300 ease-in-out
+            ${
+              selectedGenre === genre
+                ? "border-white text-white bg-gray-700 shadow-md scale-105"
+                : "border-gray-800 text-gray-400 bg-[#111111] hover:border-gray-500"
+            }
+         `}
+            >
+              {genre}
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="flex justify-center">
         <div className="relative w-[200px] lg:w-[600px]">
+          {/* Search Icon */}
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg">🔍</span>
 
-        {/* Search Icon */}
-        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
-          🔍
-        </span>
-
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search movies..."
-          className="
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search movies..."
+            className="
             w-full
             h-12
             pl-12 pr-4
@@ -47,36 +66,45 @@ function WatchList() {
 
             hover:border-gray-700
           "
-        />
-        
+          />
+        </div>
       </div>
 
-      </div>
-      
       <div className="overflow-hidden bg-[#111111] border border-gray-800 m-4 rounded-[8px]  my-5">
         <table className="w-full text-gray-400 text-center">
-          <thead>
+          <thead className="border border-gray-800">
+            {" "}
+            {/* table head*/}
             <tr>
-              <th className="border border-gray-800">Name</th>
-              <th className="border border-gray-800">Ratings</th>
-              <th className="border border-gray-800">Popularity</th>
-              <th className="border border-gray-800">Genres</th>
+              <th>Name</th>
+              <th>Ratings</th>
+              <th>Popularity</th>
+              <th>Genres</th>
             </tr>
           </thead>
+
           <tbody>
-            <tr className="border-b-2">
+            {" "}
+            {/* table body*/}
+            <tr className="border border-gray-800">
               <td className="flex items-center px-6 py-4">
-                <img className="w-[6rem] h-[10rem]" src={`https://m.media-amazon.com/images/I/71eHZFw+GlL._AC_UF894,1000_QL80_.jpg`} alt="" />
+                <img
+                  className="w-[6rem] h-[10rem]"
+                  src={`https://m.media-amazon.com/images/I/71eHZFw+GlL._AC_UF894,1000_QL80_.jpg`}
+                  alt=""
+                />
                 <div className="mx-[8px]">Avengers Endgame</div>
               </td>
               <td>9</td>
               <td>5</td>
               <td>Adventure</td>
+              <td className="text-red-600 text-xl">
+                <i class="fa-solid fa-trash-can"></i>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
-
     </>
   );
 }
