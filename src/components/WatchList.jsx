@@ -9,12 +9,13 @@ function WatchList() {
   return (
     <>
       <div className="flex justify-center  my-4 p-4">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 p-2">
           {genres.map((genre) => (
             <div
               key={genre}
               onClick={() => setSelectedGenre(genre)}
-              className={`            cursor-pointer
+              className={`            
+            cursor-pointer
             border
             text-center
             rounded-[8px]
@@ -23,8 +24,8 @@ function WatchList() {
             transition-all duration-300 ease-in-out
             ${
               selectedGenre === genre
-                ? "border-white text-white bg-gray-700 shadow-md scale-105"
-                : "border-gray-800 text-gray-400 bg-[#111111] hover:border-gray-500"
+                ? "border-white-900 text-white bg-purple-500 shadow-md scale-105"
+                : "border-gray-800 text-gray-400 bg-[#111111] hover:border-white"
             }
          `}
             >
@@ -70,16 +71,16 @@ function WatchList() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-[#111111] border border-gray-800 m-4 rounded-[8px]  my-5">
+      <div className="overflow-hidden  border border-gray-800 m-4 rounded-[8px]  my-5">
         <table className="w-full text-gray-400 text-center">
           <thead className="border border-gray-800">
             {" "}
             {/* table head*/}
             <tr>
-              <th>Name</th>
-              <th>Ratings</th>
-              <th>Popularity</th>
-              <th>Genres</th>
+              <th className="hidden sm:table-cell">Name</th>
+              <th className="hidden sm:table-cell">Ratings</th>
+              <th className="hidden sm:table-cell">Popularity</th>
+              <th className="hidden sm:table-cell">Genres</th>
             </tr>
           </thead>
 
@@ -89,17 +90,17 @@ function WatchList() {
             <tr className="border border-gray-800">
               <td className="flex items-center px-6 py-4">
                 <img
-                  className="w-[6rem] h-[10rem]"
+                  className="w-[4rem] h-[7rem] lg:w-[6rem] lg:h-[10rem] rounded-md"
                   src={`https://m.media-amazon.com/images/I/71eHZFw+GlL._AC_UF894,1000_QL80_.jpg`}
                   alt=""
                 />
                 <div className="mx-[8px]">Avengers Endgame</div>
               </td>
-              <td>9</td>
-              <td>5</td>
-              <td>Adventure</td>
-              <td className="text-red-600 text-xl">
-                <i class="fa-solid fa-trash-can"></i>
+              <td className="hidden sm:table-cell">9</td>
+              <td className="hidden sm:table-cell">5</td>
+              <td className="hidden sm:table-cell">Adventure</td>
+              <td className="text-red-600 text-xl pr-3">
+                <i className="fa-solid fa-trash-can fa-md"></i>
               </td>
             </tr>
           </tbody>
@@ -108,5 +109,6 @@ function WatchList() {
     </>
   );
 }
+
 
 export default WatchList;

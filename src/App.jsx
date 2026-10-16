@@ -4,8 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movies from "./components/Movies";
 import WatchList from "./components/WatchList";
 import Banner from "./components/Banner";
+import { useState } from "react";
 
 function App() {
+
+  const [watchList, setWatchList] = useState([]);
+
   return (
     <>
       <BrowserRouter>
@@ -14,7 +18,7 @@ function App() {
           <Route path="/" element={
             <>
             <Banner />
-            <Movies />
+            <Movies watchList={watchList} setWatchList={setWatchList} />
             </>} />
           <Route path="/watchlist" element={<WatchList />} />
         </Routes>

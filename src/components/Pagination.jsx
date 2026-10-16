@@ -1,4 +1,3 @@
-import React from "react";
 
 function Pagination({pageNo, setPageNo}) {
 
@@ -21,7 +20,7 @@ function Pagination({pageNo, setPageNo}) {
     duration-300
     hover:cursor-pointer
     transition-all
-    "><button onClick={handlePrevious}><i class="fa-solid fa-angle-left"></i></button></div>
+    "><button onClick={handlePrevious}><i className="fa-solid fa-angle-left"></i></button></div>
 
     {/* page number */}
     <div>{pageNo}</div>
@@ -32,7 +31,7 @@ function Pagination({pageNo, setPageNo}) {
     duration-300
     hover:cursor-pointer
     transition-all
-    "><button onClick={handleNext}><i class="fa-solid fa-angle-right"></i></button></div>
+    "><button onClick={handleNext}><i className="fa-solid fa-angle-right"></i></button></div>
 
   </div>;
 }
